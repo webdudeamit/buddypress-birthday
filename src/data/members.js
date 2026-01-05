@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -25,67 +25,131 @@ import { addQueryArgs } from '@wordpress/url';
 import '../editor.scss';
 
 /**
- * The edit function describes the structure of your block in the context of the
- * editor. This represents what the editor will render when the block is used.
+ * The Members component displays birthday preview in the editor
  *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
- *
+ * @param {Object} props Component properties
  * @return {WPElement} Element to render.
  */
-export default function Members({ itemIDs, title, memberAge }) {
+function Members({ title, displayAge, sendMessage, dateFormat, rangeLimit, birthdaysOf, nameType, limit, emoji }) {
+    const [birthdays, setBirthdays] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // Define state variables for form inputs
-    const [members, setMembers] = useState([]);
-
-    // useEffect(() => {
-
-    //     apiFetch({ path: '/buddypress/v1/members' }).then(items => {
-    //         setMembers(items);
-    //     });
-    // }, [itemIDs]);
+    // Call useBlockProps only once at the top
+    const blockProps = useBlockProps();
 
     useEffect(() => {
-        // Fetch members only once when the component mounts
-        apiFetch({ path: '/buddypress/v1/members' })
+        setLoading(true);
+        setError(null);
+
+        const path = addQueryArgs('/buddypress-birthday/v1/birthdays', {
+            range: rangeLimit || 'upcoming',
+            limit: limit || 5,
+            scope: birthdaysOf || 'all'
+        });
+
+        apiFetch({ path })
             .then((items) => {
-                setMembers(items);
+                setBirthdays(items || []);
+                setLoading(false);
             })
             .catch((error) => {
-                console.error('Error fetching members:', error);
+                console.error('Error fetching birthdays:', error);
+                setError(error.message || __('Error loading birthdays', 'buddypress-birthday'));
+                setLoading(false);
             });
-    }, []); // Empty dependency array ensures the effect runs only once
+    }, [rangeLimit, limit, birthdaysOf]);
 
-    return(
-        <div {...useBlockProps()}>
-            {members.length > 0 ? (
-                members.map((member) => (
-                    <div key={member.id}>
-                        <div className="item-header-avatar">
-                            <a href={member.link} target="_blank">
-                                <img
-                                    key={'avatar-' + member.id}
-                                    className="avatar"
-                                    alt={sprintf(__('Profile photo of %s', 'buddypress'), member.name)}
-                                    src={member.avatar_urls['thumb']}
-                                />
-                            </a>
-                        </div>
-                        <div className="member-description">
-                            {/* <div dangerouslySetInnerHTML={{ __html: member.latest_update.rendered }} /> */}
-                            <a href={member.link}>
-                                {(
-                                    <span>
-                                        {member.name}
+    if (loading) {
+        return (
+            <div {...blockProps} className="bp-birthday-loading">
+                {__('Loading birthdays...', 'buddypress-birthday')}
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div {...blockProps} className="bp-birthday-error">
+                {error}
+            </div>
+        );
+    }
+
+    return (
+        <div {...blockProps} className="bp-birthday-block">
+            {title && (
+                <h2 className="bp-birthday-title">{title}</h2>
+            )}
+
+            {birthdays.length > 0 ? (
+                <ul className="bp-birthday-list item-list">
+                    {birthdays.map((birthday) => (
+                        <li key={birthday.user_id} className="bp-birthday-item">
+                            <div className="item-avatar">
+                                <a href={birthday.profile_url}>
+                                    <img
+                                        src={birthday.avatar}
+                                        alt={birthday.name}
+                                        className="avatar"
+                                    />
+                                </a>
+                            </div>
+                            <div className="item">
+                                <div className="item-title">
+                                    <a href={birthday.profile_url}>
+                                        {birthday.name}
+                                        {emoji && ' 🎂'}
+                                    </a>
+                                </div>
+                                <div className="item-meta">
+                                    <span className="bp-birthday-date">
+                                        {birthday.formatted_date || birthday.next_birthday}
                                     </span>
+
+                                    {birthday.days_until === 0 && (
+                                        <span className="bp-birthday-today">
+                                            {__('Today!', 'buddypress-birthday')}
+                                        </span>
+                                    )}
+                                    {birthday.days_until === 1 && (
+                                        <span className="bp-birthday-soon">
+                                            {__('Tomorrow', 'buddypress-birthday')}
+                                        </span>
+                                    )}
+                                    {birthday.days_until > 1 && (
+                                        <span className="bp-birthday-days">
+                                            {sprintf(__('in %d days', 'buddypress-birthday'), birthday.days_until)}
+                                        </span>
+                                    )}
+
+                                    {displayAge && birthday.age > 0 && (
+                                        <span className="bp-birthday-age">
+                                            {sprintf(__('Turning %d', 'buddypress-birthday'), birthday.age + 1)}
+                                        </span>
+                                    )}
+                                </div>
+                                {sendMessage && birthday.message_url && (
+                                    <div className="action">
+                                        <a href={birthday.message_url} className="button bp-birthday-message">
+                                            {__('Send Wishes', 'buddypress-birthday')}
+                                        </a>
+                                    </div>
                                 )}
-                            </a>
-                        </div>
-                    </div>
-                ))
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             ) : (
-                <p>{__('No members Found', 'buddypress-birthday')}</p>
+                <p className="bp-birthday-empty">
+                    {rangeLimit === 'today' && __('No birthdays today', 'buddypress-birthday')}
+                    {rangeLimit === 'weekly' && __('No birthdays this week', 'buddypress-birthday')}
+                    {rangeLimit === 'monthly' && __('No birthdays this month', 'buddypress-birthday')}
+                    {(!rangeLimit || rangeLimit === 'upcoming') && __('No upcoming birthdays', 'buddypress-birthday')}
+                </p>
             )}
         </div>
     );
-    
 }
+
+export default Members;

@@ -1,31 +1,16 @@
 /**
- * Retrieves the translation of text.
+ * Save function for dynamic block
  *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
- */
-import { __ } from '@wordpress/i18n';
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
- */
-import { useBlockProps } from '@wordpress/block-editor';
-
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
+ * This is a dynamic block that renders on the server side using render.php,
+ * so we return null here.
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
  *
- * @return {WPElement} Element to render.
+ * @return {null} Null since this is a dynamic block.
  */
-export default function save() {
-    return (
-        <p {...useBlockProps.save()}>
-            {__('Gutenpride – hello from the saved content!', 'gutenpride')}
-        </p>
-    );
+function save() {
+    // This is a dynamic block rendered on the server via render.php
+    return null;
 }
+
+export default save;

@@ -16,13 +16,6 @@
     "style": "file:./style-index.css",
     "render": "file:./render.php",
     "attributes": {
-        "itemIDs": {
-            "type": "array",
-            "items": {
-                "type": "integer"
-            },
-            "default": []
-        },
         "title": {
             "type": "string",
             "default": "Upcoming Birthdays"
@@ -37,11 +30,11 @@
         },
         "dateFormat": {
             "type": "string",
-            "default": "F D"
+            "default": "F d"
         },
         "rangeLimit": {
             "type": "string",
-            "default": "no_limit"
+            "default": "upcoming"
         },
         "birthdaysOf": {
             "type": "string",
@@ -49,7 +42,7 @@
         },
         "nameType": {
             "type": "string",
-            "default": "user_name"
+            "default": "display_name"
         },
         "limit": {
             "type": "number",
@@ -58,10 +51,6 @@
         "emoji": {
             "type": "boolean",
             "default": true
-        },
-        "field": {
-            "type": "string",
-            "default": "full"
         }
     }
 }

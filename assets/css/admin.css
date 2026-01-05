@@ -1,0 +1,53 @@
+/**
+ * BuddyPress Birthday Admin Styles
+ *
+ * @package buddypress-birthday
+ */
+
+.bp-birthday-admin-settings {
+    max-width: 800px;
+}
+
+.bp-birthday-admin-settings .form-table th {
+    width: 250px;
+    padding: 20px 10px 20px 0;
+}
+
+.bp-birthday-admin-settings .form-table td {
+    padding: 15px 10px;
+}
+
+.bp-birthday-admin-settings input[type="number"] {
+    width: 80px;
+}
+
+.bp-birthday-admin-settings select {
+    min-width: 250px;
+}
+
+.bp-birthday-admin-settings .description {
+    margin-top: 5px;
+    font-style: italic;
+    color: #666;
+}
+
+.bp-birthday-admin-settings h2 {
+    margin-top: 30px;
+    padding-top: 10px;
+}
+
+.bp-birthday-admin-settings h3 {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.bp-birthday-admin-settings ul,
+.bp-birthday-admin-settings ol {
+    margin-left: 20px;
+}
+
+.bp-birthday-admin-settings ul li,
+.bp-birthday-admin-settings ol li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}

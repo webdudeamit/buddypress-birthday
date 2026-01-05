@@ -12,9 +12,8 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { TextControl, Panel, PanelBody, PanelRow, CheckboxControl, SelectControl, NumberControl } from '@wordpress/components';
+import { TextControl, Panel, PanelBody, PanelRow, CheckboxControl, SelectControl, __experimentalNumberControl as NumberControl } from '@wordpress/components';
 import Members from './data/members';
-import ProfileFields from './data/profileFields'; // Note: Ensure this file and component exist and follow naming conventions
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -32,7 +31,7 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, setAttributes }) {
+function Edit({ attributes, setAttributes }) {
     const onChangeTitle = (title) => {
         setAttributes({ title: title });
     };
@@ -61,28 +60,27 @@ export default function Edit({ attributes, setAttributes }) {
     const onChangelimit = (limit) => {
         setAttributes({ limit: limit });
     }
-    // const [isChecked, setChecked] = useState(attributes.age);
 
     return (
         <div {...useBlockProps()}>
             <InspectorControls key="setting">
                 <Panel>
-                    <PanelBody title={__('Member Information', 'block-development-examples')}>
+                    <PanelBody title={__('Birthday Settings', 'buddypress-birthday')}>
                         <PanelRow>
                             <p>
-                                {__('This block displays member information from a BuddyPress API endpoint.', 'block-development-examples')}
+                                {__('Display upcoming birthdays of your members.', 'buddypress-birthday')}
                             </p>
                         </PanelRow>
                         <PanelRow>
                             <TextControl
-                                label={__('Title', 'block-development-examples')}
+                                label={__('Title', 'buddypress-birthday')}
                                 value={attributes.title}
                                 onChange={onChangeTitle}
                             />
                         </PanelRow>
                         <PanelRow>
                             <CheckboxControl
-                                label={__(' Show the age of the person', 'block-development-examples')}
+                                label={__('Show the age of the person', 'buddypress-birthday')}
                                 checked={attributes.displayAge}
                                 onChange={onCheckedAge}
                             >
@@ -90,72 +88,73 @@ export default function Edit({ attributes, setAttributes }) {
                         </PanelRow>
                         <PanelRow>
                             <CheckboxControl
-                                label={__('Enable option to wish them', 'block-development-examples')}
+                                label={__('Enable option to send birthday wishes', 'buddypress-birthday')}
                                 checked={attributes.sendMessage}
                                 onChange={onCheckedWishes}
                             >
                             </CheckboxControl>
                         </PanelRow>
                         <PanelRow>
+                            <CheckboxControl
+                                label={__('Show birthday emoji', 'buddypress-birthday')}
+                                checked={attributes.emoji}
+                                onChange={(emoji) => setAttributes({ emoji })}
+                            >
+                            </CheckboxControl>
+                        </PanelRow>
+                        <PanelRow>
                             <TextControl
-                                label={__('Date format', 'block-development-examples')}
+                                label={__('Date format', 'buddypress-birthday')}
                                 value={attributes.dateFormat}
                                 onChange={onChangeDateFormate}
-                            />  
+                                help={__('PHP date format (e.g., F d for "January 15")', 'buddypress-birthday')}
+                            />
                         </PanelRow>
                         <PanelRow>
                             <SelectControl
-                                label={__('Birthday range limit', 'block-development-examples')}
+                                label={__('Birthday range limit', 'buddypress-birthday')}
                                 value={attributes.rangeLimit}
                                 onChange={onChangeRangeLimit}
                                 options={[
-                                    { value: 'no_limit', label: __('No limit', 'block-development-examples' )},
-                                    { value: 'weekly', label: __('Weekly', 'block-development-examples' ) },
-                                    { value: 'monthly', label: __('Monthly', 'block-development-examples' ) },
+                                    { value: 'upcoming', label: __('Upcoming (All Future)', 'buddypress-birthday') },
+                                    { value: 'today', label: __('Today Only', 'buddypress-birthday') },
+                                    { value: 'weekly', label: __('Next 7 Days', 'buddypress-birthday') },
+                                    { value: 'monthly', label: __('This Month', 'buddypress-birthday') },
                                 ]}
                             />
                         </PanelRow>
                         <PanelRow>
                             <SelectControl
-                                label={__('Show Birthdays of', 'block-development-examples')}
+                                label={__('Show Birthdays of', 'buddypress-birthday')}
                                 value={attributes.birthdaysOf}
                                 onChange={onChangeBirthdaysOf}
                                 options={[
-                                    { value: 'friends', label: __('Friends', 'block-development-examples') },
-                                    { value: 'all', label: __('All Members', 'block-development-examples') },
+                                    { value: 'all', label: __('All Members', 'buddypress-birthday') },
+                                    { value: 'friends', label: __('Friends Only', 'buddypress-birthday') },
                                 ]}
                             />
                         </PanelRow>
                         <PanelRow>
                             <SelectControl
-                                label={__('Display Name Type', 'block-development-examples')}
+                                label={__('Display Name Type', 'buddypress-birthday')}
                                 value={attributes.nameType}
                                 onChange={onChangeNameTypet}
                                 options={[
-                                    { value: 'friends', label: __('Friends', 'block-development-examples') },
-                                    { value: 'all', label: __('All Members', 'block-development-examples') },
+                                    { value: 'display_name', label: __('Display Name', 'buddypress-birthday') },
+                                    { value: 'username', label: __('Username', 'buddypress-birthday') },
+                                    { value: 'full_name', label: __('Full Name (from xProfile)', 'buddypress-birthday') },
                                 ]}
                             />
                         </PanelRow>
                         <PanelRow>
                             <NumberControl
-                                label={__('Number of birthdays to show ', 'block-development-examples')}
+                                label={__('Number of birthdays to show', 'buddypress-birthday')}
                                 value={attributes.limit}
                                 onChange={onChangelimit}
+                                min={1}
+                                max={50}
                             />
                         </PanelRow>
-                        {/* <SelectControl
-                            label={__('Field name', 'block-development-examples')}
-                            value={attributes.field}
-                            options={[
-                                { value: 'no_limit', label: 'Option A' },
-                                { value: 'b', label: 'Option B' },
-                                { value: 'c', label: 'Option C' },
-                            ]}
-                            onChange={onChangeSelectField}
-                        /> */}
-                        {/* <ProfileFields {...attributes}></ProfileFields> */}
-                        {/* Call the XProfileFields component here */}
                     </PanelBody>
                 </Panel>
             </InspectorControls>
@@ -163,3 +162,5 @@ export default function Edit({ attributes, setAttributes }) {
         </div>
     );
 }
+
+export default Edit;

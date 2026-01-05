@@ -1,0 +1,98 @@
+/**
+ * BuddyPress Birthday Editor Styles
+ *
+ * Styles for the birthday block in the WordPress editor
+ *
+ * @package buddypress-birthday
+ */
+
+.wp-block-wbcom-designs-buddypress-birthday {
+    // Import frontend styles for editor preview
+    .bp-birthday-block {
+        margin: 20px 0;
+        padding: 15px;
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+    }
+
+    // Loading state
+    .bp-birthday-loading {
+        padding: 60px 20px;
+        text-align: center;
+        background: #f8f8f8;
+        border: 2px dashed #ddd;
+        border-radius: 4px;
+        color: #666;
+        font-size: 1em;
+        font-style: italic;
+
+        &::before {
+            content: '⏳ ';
+            font-size: 1.5em;
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+
+    // Error state
+    .bp-birthday-error {
+        padding: 20px;
+        background: #fef0f0;
+        border: 2px solid #dc3232;
+        border-radius: 4px;
+        color: #dc3232;
+        font-size: 0.95em;
+        line-height: 1.5;
+
+        &::before {
+            content: '⚠️ ';
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+    }
+
+    // Editor-specific adjustments
+    .bp-birthday-block {
+        .bp-birthday-title {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .bp-birthday-item {
+            pointer-events: none; // Disable clicks in editor
+
+            a {
+                cursor: default;
+                text-decoration: none;
+
+                &:hover {
+                    color: inherit;
+                }
+            }
+        }
+    }
+
+    // Indicate that links are not clickable in editor
+    .bp-birthday-block::after {
+        content: 'Preview mode - links are not clickable in editor';
+        display: block;
+        margin-top: 15px;
+        padding: 10px;
+        background: #f0f6fc;
+        border: 1px solid #c7daed;
+        border-radius: 3px;
+        color: #0073aa;
+        font-size: 0.85em;
+        text-align: center;
+        font-style: italic;
+    }
+}
+
+// Selected block indicator
+.wp-block-wbcom-designs-buddypress-birthday.is-selected {
+    .bp-birthday-block {
+        border-color: #0073aa;
+        box-shadow: 0 0 0 1px #0073aa;
+    }
+}

@@ -16,28 +16,41 @@
   "style": "file:./style-index.css",
   "render": "file:./render.php",
   "attributes": {
-    "itemIDs": {
-      "type": "array",
-      "items": {
-        "type": "integer"
-      },
-      "default": []
-    },
     "title": {
       "type": "string",
       "default": "Upcoming Birthdays"
     },
-    "memberAge": {
+    "displayAge": {
       "type": "boolean",
       "default": true
     },
-    "wishes": {
+    "sendMessage": {
       "type": "boolean",
       "default": true
     },
-    "field": {
+    "dateFormat": {
       "type": "string",
-      "default": "full"
+      "default": "F d"
+    },
+    "rangeLimit": {
+      "type": "string",
+      "default": "upcoming"
+    },
+    "birthdaysOf": {
+      "type": "string",
+      "default": "all"
+    },
+    "nameType": {
+      "type": "string",
+      "default": "display_name"
+    },
+    "limit": {
+      "type": "number",
+      "default": 5
+    },
+    "emoji": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
