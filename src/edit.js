@@ -65,22 +65,22 @@ function Edit({ attributes, setAttributes }) {
         <div {...useBlockProps()}>
             <InspectorControls key="setting">
                 <Panel>
-                    <PanelBody title={__('Birthday Settings', 'buddypress-birthday-block')}>
+                    <PanelBody title={__('Birthday Settings', 'birthday-block-for-buddypress')}>
                         <PanelRow>
                             <p>
-                                {__('Display upcoming birthdays of your members.', 'buddypress-birthday-block')}
+                                {__('Display upcoming birthdays of your members.', 'birthday-block-for-buddypress')}
                             </p>
                         </PanelRow>
                         <PanelRow>
                             <TextControl
-                                label={__('Title', 'buddypress-birthday-block')}
+                                label={__('Title', 'birthday-block-for-buddypress')}
                                 value={attributes.title}
                                 onChange={onChangeTitle}
                             />
                         </PanelRow>
                         <PanelRow>
                             <CheckboxControl
-                                label={__('Show the age of the person', 'buddypress-birthday-block')}
+                                label={__('Show the age of the person', 'birthday-block-for-buddypress')}
                                 checked={attributes.displayAge}
                                 onChange={onCheckedAge}
                             >
@@ -88,7 +88,7 @@ function Edit({ attributes, setAttributes }) {
                         </PanelRow>
                         <PanelRow>
                             <CheckboxControl
-                                label={__('Enable option to send birthday wishes', 'buddypress-birthday-block')}
+                                label={__('Enable option to send birthday wishes', 'birthday-block-for-buddypress')}
                                 checked={attributes.sendMessage}
                                 onChange={onCheckedWishes}
                             >
@@ -96,7 +96,7 @@ function Edit({ attributes, setAttributes }) {
                         </PanelRow>
                         <PanelRow>
                             <CheckboxControl
-                                label={__('Show birthday emoji', 'buddypress-birthday-block')}
+                                label={__('Show birthday emoji', 'birthday-block-for-buddypress')}
                                 checked={attributes.emoji}
                                 onChange={(emoji) => setAttributes({ emoji })}
                             >
@@ -104,51 +104,51 @@ function Edit({ attributes, setAttributes }) {
                         </PanelRow>
                         <PanelRow>
                             <TextControl
-                                label={__('Date format', 'buddypress-birthday-block')}
+                                label={__('Date format', 'birthday-block-for-buddypress')}
                                 value={attributes.dateFormat}
                                 onChange={onChangeDateFormate}
-                                help={__('PHP date format (e.g., F d for "January 15")', 'buddypress-birthday-block')}
+                                help={__('PHP date format (e.g., F d for "January 15")', 'birthday-block-for-buddypress')}
                             />
                         </PanelRow>
                         <PanelRow>
                             <SelectControl
-                                label={__('Birthday range limit', 'buddypress-birthday-block')}
+                                label={__('Birthday range limit', 'birthday-block-for-buddypress')}
                                 value={attributes.rangeLimit}
                                 onChange={onChangeRangeLimit}
                                 options={[
-                                    { value: 'upcoming', label: __('Upcoming (All Future)', 'buddypress-birthday-block') },
-                                    { value: 'today', label: __('Today Only', 'buddypress-birthday-block') },
-                                    { value: 'weekly', label: __('Next 7 Days', 'buddypress-birthday-block') },
-                                    { value: 'monthly', label: __('This Month', 'buddypress-birthday-block') },
+                                    { value: 'upcoming', label: __('Upcoming (All Future)', 'birthday-block-for-buddypress') },
+                                    { value: 'today', label: __('Today Only', 'birthday-block-for-buddypress') },
+                                    { value: 'weekly', label: __('Next 7 Days', 'birthday-block-for-buddypress') },
+                                    { value: 'monthly', label: __('This Month', 'birthday-block-for-buddypress') },
                                 ]}
                             />
                         </PanelRow>
                         <PanelRow>
                             <SelectControl
-                                label={__('Show Birthdays of', 'buddypress-birthday-block')}
+                                label={__('Show Birthdays of', 'birthday-block-for-buddypress')}
                                 value={attributes.birthdaysOf}
                                 onChange={onChangeBirthdaysOf}
                                 options={[
-                                    { value: 'all', label: __('All Members', 'buddypress-birthday-block') },
-                                    { value: 'friends', label: __('Friends Only', 'buddypress-birthday-block') },
+                                    { value: 'all', label: __('All Members', 'birthday-block-for-buddypress') },
+                                    { value: 'friends', label: __('Friends Only', 'birthday-block-for-buddypress') },
                                 ]}
                             />
                         </PanelRow>
                         <PanelRow>
                             <SelectControl
-                                label={__('Display Name Type', 'buddypress-birthday-block')}
+                                label={__('Display Name Type', 'birthday-block-for-buddypress')}
                                 value={attributes.nameType}
                                 onChange={onChangeNameTypet}
                                 options={[
-                                    { value: 'display_name', label: __('Display Name', 'buddypress-birthday-block') },
-                                    { value: 'username', label: __('Username', 'buddypress-birthday-block') },
-                                    { value: 'full_name', label: __('Full Name (from xProfile)', 'buddypress-birthday-block') },
+                                    { value: 'display_name', label: __('Display Name', 'birthday-block-for-buddypress') },
+                                    { value: 'username', label: __('Username', 'birthday-block-for-buddypress') },
+                                    { value: 'full_name', label: __('Full Name (from xProfile)', 'birthday-block-for-buddypress') },
                                 ]}
                             />
                         </PanelRow>
                         <PanelRow>
                             <NumberControl
-                                label={__('Number of birthdays to show', 'buddypress-birthday-block')}
+                                label={__('Number of birthdays to show', 'birthday-block-for-buddypress')}
                                 value={attributes.limit}
                                 onChange={onChangelimit}
                                 min={1}

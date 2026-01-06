@@ -1,5 +1,5 @@
 {
-    "name": "buddypress-birthday-block",
+    "name": "birthday-block-for-buddypress",
     "version": "1.0.0",
     "description": "Display upcoming birthdays of your BuddyPress members with a beautiful, customizable Gutenberg block.",
     "author": "Amit Agrahari",

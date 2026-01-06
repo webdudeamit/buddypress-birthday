@@ -55,7 +55,7 @@ function Members({ title, displayAge, sendMessage, dateFormat, rangeLimit, birth
             })
             .catch((error) => {
                 console.error('Error fetching birthdays:', error);
-                setError(error.message || __('Error loading birthdays', 'buddypress-birthday-block'));
+                setError(error.message || __('Error loading birthdays', 'birthday-block-for-buddypress'));
                 setLoading(false);
             });
     }, [rangeLimit, limit, birthdaysOf]);
@@ -63,7 +63,7 @@ function Members({ title, displayAge, sendMessage, dateFormat, rangeLimit, birth
     if (loading) {
         return (
             <div {...blockProps} className="bp-birthday-loading">
-                {__('Loading birthdays...', 'buddypress-birthday-block')}
+                {__('Loading birthdays...', 'birthday-block-for-buddypress')}
             </div>
         );
     }
@@ -109,30 +109,30 @@ function Members({ title, displayAge, sendMessage, dateFormat, rangeLimit, birth
 
                                     {birthday.days_until === 0 && (
                                         <span className="bp-birthday-today">
-                                            {__('Today!', 'buddypress-birthday-block')}
+                                            {__('Today!', 'birthday-block-for-buddypress')}
                                         </span>
                                     )}
                                     {birthday.days_until === 1 && (
                                         <span className="bp-birthday-soon">
-                                            {__('Tomorrow', 'buddypress-birthday-block')}
+                                            {__('Tomorrow', 'birthday-block-for-buddypress')}
                                         </span>
                                     )}
                                     {birthday.days_until > 1 && (
                                         <span className="bp-birthday-days">
-                                            {sprintf(__('in %d days', 'buddypress-birthday-block'), birthday.days_until)}
+                                            {sprintf(__('in %d days', 'birthday-block-for-buddypress'), birthday.days_until)}
                                         </span>
                                     )}
 
                                     {displayAge && birthday.age > 0 && (
                                         <span className="bp-birthday-age">
-                                            {sprintf(__('Turning %d', 'buddypress-birthday-block'), birthday.age + 1)}
+                                            {sprintf(__('Turning %d', 'birthday-block-for-buddypress'), birthday.age + 1)}
                                         </span>
                                     )}
                                 </div>
                                 {sendMessage && birthday.message_url && (
                                     <div className="action">
                                         <a href={birthday.message_url} className="button bp-birthday-message">
-                                            {__('Send Wishes', 'buddypress-birthday-block')}
+                                            {__('Send Wishes', 'birthday-block-for-buddypress')}
                                         </a>
                                     </div>
                                 )}
@@ -142,10 +142,10 @@ function Members({ title, displayAge, sendMessage, dateFormat, rangeLimit, birth
                 </ul>
             ) : (
                 <p className="bp-birthday-empty">
-                    {rangeLimit === 'today' && __('No birthdays today', 'buddypress-birthday-block')}
-                    {rangeLimit === 'weekly' && __('No birthdays this week', 'buddypress-birthday-block')}
-                    {rangeLimit === 'monthly' && __('No birthdays this month', 'buddypress-birthday-block')}
-                    {(!rangeLimit || rangeLimit === 'upcoming') && __('No upcoming birthdays', 'buddypress-birthday-block')}
+                    {rangeLimit === 'today' && __('No birthdays today', 'birthday-block-for-buddypress')}
+                    {rangeLimit === 'weekly' && __('No birthdays this week', 'birthday-block-for-buddypress')}
+                    {rangeLimit === 'monthly' && __('No birthdays this month', 'birthday-block-for-buddypress')}
+                    {(!rangeLimit || rangeLimit === 'upcoming') && __('No upcoming birthdays', 'birthday-block-for-buddypress')}
                 </p>
             )}
         </div>

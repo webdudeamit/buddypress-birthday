@@ -1,22 +1,22 @@
 <?php
 /**
- * BuddyPress Birthday Block
+ * Birthday Block for BuddyPress
  *
- * @package           buddypress-birthday-block
+ * @package           birthday-block-for-buddypress
  * @author            Amit Kumar Agrahari
  * @copyright         2025 Amit Kumar Agrahari
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
- * Plugin Name:       BuddyPress Birthday Block
- * Plugin URI:        https://wordpress.org/plugins/buddypress-birthday-block/
+ * Plugin Name:       Birthday Block for BuddyPress
+ * Plugin URI:        https://wordpress.org/plugins/birthday-block-for-buddypress/
  * Description:       Display upcoming birthdays of your BuddyPress members with a beautiful, customizable Gutenberg block. Perfect for building community engagement!
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Amit Kumar Agrahari
  * Author URI:        https://profiles.wordpress.org/amitgrhr/
- * Text Domain:       buddypress-birthday-block
+ * Text Domain:       birthday-block-for-buddypress
  * Domain Path:       /languages
  * License:           GPL v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

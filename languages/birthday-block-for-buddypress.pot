@@ -1,0 +1,437 @@
+# Copyright (C) 2026 Amit Kumar Agrahari
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Birthday Block for BuddyPress 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/buddypress-birthdays\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-01-06T18:22:01+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: birthday-block-for-buddypress\n"
+
+#. Plugin Name of the plugin
+#: buddypress-birthdays.php
+msgid "Birthday Block for BuddyPress"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: buddypress-birthdays.php
+msgid "https://wordpress.org/plugins/birthday-block-for-buddypress/"
+msgstr ""
+
+#. Description of the plugin
+#: buddypress-birthdays.php
+msgid "Display upcoming birthdays of your BuddyPress members with a beautiful, customizable Gutenberg block. Perfect for building community engagement!"
+msgstr ""
+
+#. Author of the plugin
+#: buddypress-birthdays.php
+msgid "Amit Kumar Agrahari"
+msgstr ""
+
+#. Author URI of the plugin
+#: buddypress-birthdays.php
+msgid "https://profiles.wordpress.org/amitgrhr/"
+msgstr ""
+
+#: build/render.php:11
+#: src/render.php:11
+msgid "Upcoming Birthdays"
+msgstr ""
+
+#. translators: %s: Settings link
+#: build/render.php:31
+#: src/render.php:31
+#, php-format
+msgid "Please configure the birthday field in %s."
+msgstr ""
+
+#: build/render.php:33
+#: src/render.php:33
+msgid "Settings > BP Birthday"
+msgstr ""
+
+#: build/render.php:99
+#: src/render.php:99
+#: build/index.js:1
+#: src/data/members.js:112
+msgid "Today!"
+msgstr ""
+
+#: build/render.php:103
+#: src/render.php:103
+#: build/index.js:1
+#: src/data/members.js:117
+msgid "Tomorrow"
+msgstr ""
+
+#. translators: %d: Number of days
+#: build/render.php:110
+#: src/render.php:110
+#, php-format
+msgid "in %d day"
+msgid_plural "in %d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: Age
+#: build/render.php:122
+#: src/render.php:122
+#: build/index.js:1
+#: src/data/members.js:128
+#, php-format,js-format
+msgid "Turning %d"
+msgstr ""
+
+#: build/render.php:134
+#: src/render.php:134
+#: build/index.js:1
+#: src/data/members.js:135
+msgid "Send Wishes"
+msgstr ""
+
+#: build/render.php:147
+#: src/render.php:147
+#: build/index.js:1
+#: src/data/members.js:145
+msgid "No birthdays today"
+msgstr ""
+
+#: build/render.php:150
+#: src/render.php:150
+#: build/index.js:1
+#: src/data/members.js:146
+msgid "No birthdays this week"
+msgstr ""
+
+#: build/render.php:153
+#: src/render.php:153
+#: build/index.js:1
+#: src/data/members.js:147
+msgid "No birthdays this month"
+msgstr ""
+
+#: build/render.php:156
+#: src/render.php:156
+#: build/index.js:1
+#: src/data/members.js:148
+msgid "No upcoming birthdays"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:50
+msgid "BuddyPress Birthday Settings"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:51
+msgid "BP Birthday"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:96
+msgid "Birthday Field Configuration"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:104
+msgid "Birthday Profile Field"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:112
+msgid "Default Birthday Range"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:120
+msgid "Default Number to Display"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:140
+msgid "Settings Saved"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:154
+msgid "Save Settings"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:160
+msgid "How to Use"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:162
+msgid "Select the xProfile field that contains member birthdays above."
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:163
+msgid "Add the \"BuddyPress Birthday\" block to any page or post."
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:164
+msgid "Customize the block settings in the editor sidebar."
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:167
+msgid "Block Attributes"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:169
+msgid "Title:"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:169
+msgid "Widget heading text"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:170
+msgid "Display Age:"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:170
+msgid "Show member age"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:171
+msgid "Send Message:"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:171
+msgid "Show \"Send Wishes\" button"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:172
+msgid "Date Format:"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:172
+msgid "PHP date format string"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:173
+msgid "Range:"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:173
+msgid "Today, weekly, monthly, or upcoming"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:174
+msgid "Scope:"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:174
+msgid "All members or friends only"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:184
+msgid "Select which xProfile field contains member birthdays. Only date-type fields are shown."
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:196
+msgid "No date fields found. Please create a date-type xProfile field first."
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:198
+msgid "Create Profile Field"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:205
+msgid "-- Select a Field --"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:213
+msgid "This field will be used to calculate upcoming birthdays."
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:226
+#: build/index.js:1
+#: src/edit.js:119
+msgid "Upcoming (All Future)"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:229
+#: build/index.js:1
+#: src/edit.js:120
+msgid "Today Only"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:232
+#: build/index.js:1
+#: src/edit.js:121
+msgid "Next 7 Days"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:235
+#: build/index.js:1
+#: src/edit.js:122
+msgid "This Month"
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:239
+msgid "Default range for birthday blocks. Can be overridden in each block."
+msgstr ""
+
+#: includes/buddypress-birthdays-admin.php:253
+msgid "Default number of birthdays to display in the block."
+msgstr ""
+
+#: includes/buddypress-birthdays-member.php:114
+msgid "You must be logged in to view friends birthdays."
+msgstr ""
+
+#: includes/buddypress-birthdays-member.php:142
+msgid "No birthday field configured. Please configure it in Settings > BP Birthday."
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:174
+msgid "BuddyPress Birthday - Dummy Data"
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:181
+msgid "View sample data"
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:197
+msgid "Populate Dummy Birthday Data"
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:199
+msgid "This will add random birthday dates (ages 18-65) to all BuddyPress members who don't have a birthday set."
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:202
+msgid "Note:"
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:203
+msgid "Make sure you have configured the birthday field in Settings > BP Birthday before running this."
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:209
+msgid "Populate Dummy Birthdays"
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:212
+msgid "Are you sure you want to clear all birthday data? This cannot be undone."
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:213
+msgid "Clear All Birthday Data"
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:219
+msgid "Alternative: WP-CLI Command"
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:220
+msgid "You can also populate data using WP-CLI:"
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:233
+msgid "BP Birthday - Dummy Data"
+msgstr ""
+
+#: includes/populate-dummy-birthdays.php:234
+msgid "BP Birthday Data"
+msgstr ""
+
+#: build/index.js:1
+#: src/data/members.js:58
+msgid "Error loading birthdays"
+msgstr ""
+
+#: build/index.js:1
+#: src/data/members.js:66
+msgid "Loading birthdays..."
+msgstr ""
+
+#: build/index.js:1
+#: src/data/members.js:122
+#, js-format
+msgid "in %d days"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:68
+msgid "Birthday Settings"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:71
+msgid "Display upcoming birthdays of your members."
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:76
+msgid "Title"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:83
+msgid "Show the age of the person"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:91
+msgid "Enable option to send birthday wishes"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:99
+msgid "Show birthday emoji"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:107
+msgid "Date format"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:110
+msgid "PHP date format (e.g., F d for \"January 15\")"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:115
+msgid "Birthday range limit"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:128
+msgid "Show Birthdays of"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:132
+msgid "All Members"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:133
+msgid "Friends Only"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:139
+msgid "Display Name Type"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:143
+msgid "Display Name"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:144
+msgid "Username"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:145
+msgid "Full Name (from xProfile)"
+msgstr ""
+
+#: build/index.js:1
+#: src/edit.js:151
+msgid "Number of birthdays to show"
+msgstr ""

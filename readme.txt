@@ -1,4 +1,4 @@
-=== BuddyPress Birthday Block ===
+=== Birthday Block for BuddyPress ===
 Contributors: amitgrhr
 Tags: buddypress, birthday, members, community, block
 Requires at least: 5.2
@@ -12,7 +12,7 @@ Display upcoming birthdays of your BuddyPress members with a beautiful, customiz
 
 == Description ==
 
-BuddyPress Birthday Block is a lightweight plugin that displays upcoming birthdays of your BuddyPress community members using a modern Gutenberg block. Perfect for building engagement and celebrating your community!
+Birthday Block for BuddyPress is a lightweight plugin that displays upcoming birthdays of your BuddyPress community members using a modern Gutenberg block. Perfect for building engagement and celebrating your community!
 
 = Features =
 
