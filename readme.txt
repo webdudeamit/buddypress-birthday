@@ -1,6 +1,6 @@
-=== BuddyPress Birthday ===
+=== BuddyPress Birthday Block ===
 Contributors: amitgrhr
-Tags: buddypress, birthday, members, community, social
+Tags: buddypress, birthday, members, community, block
 Requires at least: 5.2
 Tested up to: 6.4
 Requires PHP: 7.2
@@ -8,11 +8,11 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Display upcoming birthdays of your BuddyPress members with a beautiful, customizable block.
+Display upcoming birthdays of your BuddyPress members with a beautiful, customizable Gutenberg block.
 
 == Description ==
 
-BuddyPress Birthday is a lightweight plugin that displays upcoming birthdays of your BuddyPress community members. Perfect for building engagement and celebrating your community!
+BuddyPress Birthday Block is a lightweight plugin that displays upcoming birthdays of your BuddyPress community members using a modern Gutenberg block. Perfect for building engagement and celebrating your community!
 
 = Features =
 

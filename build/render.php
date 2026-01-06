@@ -8,7 +8,7 @@
  */
 
 // Get attributes with defaults.
-$title        = isset( $attributes['title'] ) ? $attributes['title'] : __( 'Upcoming Birthdays', 'buddypress-birthday' );
+$title        = isset( $attributes['title'] ) ? $attributes['title'] : __( 'Upcoming Birthdays', 'buddypress-birthday-block' );
 $display_age  = isset( $attributes['displayAge'] ) ? $attributes['displayAge'] : true;
 $send_message = isset( $attributes['sendMessage'] ) ? $attributes['sendMessage'] : true;
 $date_format  = isset( $attributes['dateFormat'] ) ? $attributes['dateFormat'] : 'F d';
@@ -28,9 +28,9 @@ if ( ! $field_id ) {
 			<?php
 			printf(
 				/* translators: %s: Settings link */
-				esc_html__( 'Please configure the birthday field in %s.', 'buddypress-birthday' ),
+				esc_html__( 'Please configure the birthday field in %s.', 'buddypress-birthday-block' ),
 				'<a href="' . esc_url( admin_url( 'options-general.php?page=bp-birthday-settings' ) ) . '">' .
-				esc_html__( 'Settings > BP Birthday', 'buddypress-birthday' ) .
+				esc_html__( 'Settings > BP Birthday', 'buddypress-birthday-block' ) .
 				'</a>'
 			);
 			?>
@@ -96,18 +96,18 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 							<?php if ( 0 === $birthday['days_until'] ) : ?>
 								<span class="bp-birthday-today">
-									<?php esc_html_e( 'Today!', 'buddypress-birthday' ); ?>
+									<?php esc_html_e( 'Today!', 'buddypress-birthday-block' ); ?>
 								</span>
 							<?php elseif ( 1 === $birthday['days_until'] ) : ?>
 								<span class="bp-birthday-soon">
-									<?php esc_html_e( 'Tomorrow', 'buddypress-birthday' ); ?>
+									<?php esc_html_e( 'Tomorrow', 'buddypress-birthday-block' ); ?>
 								</span>
 							<?php else : ?>
 								<span class="bp-birthday-days">
 									<?php
 									printf(
 										/* translators: %d: Number of days */
-										esc_html( _n( 'in %d day', 'in %d days', $birthday['days_until'], 'buddypress-birthday' ) ),
+										esc_html( _n( 'in %d day', 'in %d days', $birthday['days_until'], 'buddypress-birthday-block' ) ),
 										$birthday['days_until']
 									);
 									?>
@@ -119,7 +119,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 									<?php
 									printf(
 										/* translators: %d: Age */
-										esc_html__( 'Turning %d', 'buddypress-birthday' ),
+										esc_html__( 'Turning %d', 'buddypress-birthday-block' ),
 										$birthday['age'] + 1
 									);
 									?>
@@ -131,7 +131,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 							<div class="action">
 								<a href="<?php echo esc_url( $birthday['message_url'] ); ?>"
 								   class="button bp-birthday-message">
-									<?php esc_html_e( 'Send Wishes', 'buddypress-birthday' ); ?>
+									<?php esc_html_e( 'Send Wishes', 'buddypress-birthday-block' ); ?>
 								</a>
 							</div>
 						<?php endif; ?>
@@ -144,16 +144,16 @@ $wrapper_attributes = get_block_wrapper_attributes(
 			<?php
 			switch ( $range_limit ) {
 				case 'today':
-					esc_html_e( 'No birthdays today', 'buddypress-birthday' );
+					esc_html_e( 'No birthdays today', 'buddypress-birthday-block' );
 					break;
 				case 'weekly':
-					esc_html_e( 'No birthdays this week', 'buddypress-birthday' );
+					esc_html_e( 'No birthdays this week', 'buddypress-birthday-block' );
 					break;
 				case 'monthly':
-					esc_html_e( 'No birthdays this month', 'buddypress-birthday' );
+					esc_html_e( 'No birthdays this month', 'buddypress-birthday-block' );
 					break;
 				default:
-					esc_html_e( 'No upcoming birthdays', 'buddypress-birthday' );
+					esc_html_e( 'No upcoming birthdays', 'buddypress-birthday-block' );
 			}
 			?>
 		</p>

@@ -1,7 +1,7 @@
 {
-    "name": "buddypress-birthday",
+    "name": "buddypress-birthday-block",
     "version": "1.0.0",
-    "description": "Display upcoming birthdays of your members.",
+    "description": "Display upcoming birthdays of your BuddyPress members with a beautiful, customizable Gutenberg block.",
     "author": "Amit Agrahari",
     "license": "GPL-2.0-or-later",
     "main": "build/index.js",
@@ -11,7 +11,6 @@
         "lint:css": "wp-scripts lint-style",
         "lint:js": "wp-scripts lint-js",
         "packages-update": "wp-scripts packages-update",
-        "plugin-zip": "wp-scripts plugin-zip",
         "start": "wp-scripts start"
     },
     "devDependencies": {

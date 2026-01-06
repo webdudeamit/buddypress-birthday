@@ -15,5 +15,9 @@ package-lock.json
 # WordPress
 *.log
 
+# Build scripts and output
+bin/
+dist/
+
 # Build (keep build for distribution)
 # node_modules is ignored but build folder is kept for WordPress.org submission

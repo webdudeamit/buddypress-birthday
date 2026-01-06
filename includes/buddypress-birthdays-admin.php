@@ -47,8 +47,8 @@ class BuddyPress_Birthday_Admin {
 	 */
 	public function add_admin_menu() {
 		add_options_page(
-			__( 'BuddyPress Birthday Settings', 'buddypress-birthday' ),
-			__( 'BP Birthday', 'buddypress-birthday' ),
+			__( 'BuddyPress Birthday Settings', 'buddypress-birthday-block' ),
+			__( 'BP Birthday', 'buddypress-birthday-block' ),
 			'manage_options',
 			'bp-birthday-settings',
 			array( $this, 'render_settings_page' )
@@ -93,7 +93,7 @@ class BuddyPress_Birthday_Admin {
 		// Add settings section
 		add_settings_section(
 			'bp_birthday_main_section',
-			__( 'Birthday Field Configuration', 'buddypress-birthday' ),
+			__( 'Birthday Field Configuration', 'buddypress-birthday-block' ),
 			array( $this, 'render_section_description' ),
 			'bp-birthday-settings'
 		);
@@ -101,7 +101,7 @@ class BuddyPress_Birthday_Admin {
 		// Add settings fields
 		add_settings_field(
 			'bp_birthday_field_id',
-			__( 'Birthday Profile Field', 'buddypress-birthday' ),
+			__( 'Birthday Profile Field', 'buddypress-birthday-block' ),
 			array( $this, 'render_field_select' ),
 			'bp-birthday-settings',
 			'bp_birthday_main_section'
@@ -109,7 +109,7 @@ class BuddyPress_Birthday_Admin {
 
 		add_settings_field(
 			'bp_birthday_default_range',
-			__( 'Default Birthday Range', 'buddypress-birthday' ),
+			__( 'Default Birthday Range', 'buddypress-birthday-block' ),
 			array( $this, 'render_range_select' ),
 			'bp-birthday-settings',
 			'bp_birthday_main_section'
@@ -117,7 +117,7 @@ class BuddyPress_Birthday_Admin {
 
 		add_settings_field(
 			'bp_birthday_default_limit',
-			__( 'Default Number to Display', 'buddypress-birthday' ),
+			__( 'Default Number to Display', 'buddypress-birthday-block' ),
 			array( $this, 'render_limit_field' ),
 			'bp-birthday-settings',
 			'bp_birthday_main_section'
@@ -137,7 +137,7 @@ class BuddyPress_Birthday_Admin {
 			add_settings_error(
 				'bp_birthday_messages',
 				'bp_birthday_message',
-				__( 'Settings Saved', 'buddypress-birthday' ),
+				__( 'Settings Saved', 'buddypress-birthday-block' ),
 				'updated'
 			);
 		}
@@ -151,27 +151,27 @@ class BuddyPress_Birthday_Admin {
 				<?php
 				settings_fields( 'bp_birthday_settings' );
 				do_settings_sections( 'bp-birthday-settings' );
-				submit_button( __( 'Save Settings', 'buddypress-birthday' ) );
+				submit_button( __( 'Save Settings', 'buddypress-birthday-block' ) );
 				?>
 			</form>
 
 			<hr>
 
-			<h2><?php esc_html_e( 'How to Use', 'buddypress-birthday' ); ?></h2>
+			<h2><?php esc_html_e( 'How to Use', 'buddypress-birthday-block' ); ?></h2>
 			<ol>
-				<li><?php esc_html_e( 'Select the xProfile field that contains member birthdays above.', 'buddypress-birthday' ); ?></li>
-				<li><?php esc_html_e( 'Add the "BuddyPress Birthday" block to any page or post.', 'buddypress-birthday' ); ?></li>
-				<li><?php esc_html_e( 'Customize the block settings in the editor sidebar.', 'buddypress-birthday' ); ?></li>
+				<li><?php esc_html_e( 'Select the xProfile field that contains member birthdays above.', 'buddypress-birthday-block' ); ?></li>
+				<li><?php esc_html_e( 'Add the "BuddyPress Birthday" block to any page or post.', 'buddypress-birthday-block' ); ?></li>
+				<li><?php esc_html_e( 'Customize the block settings in the editor sidebar.', 'buddypress-birthday-block' ); ?></li>
 			</ol>
 
-			<h3><?php esc_html_e( 'Block Attributes', 'buddypress-birthday' ); ?></h3>
+			<h3><?php esc_html_e( 'Block Attributes', 'buddypress-birthday-block' ); ?></h3>
 			<ul>
-				<li><strong><?php esc_html_e( 'Title:', 'buddypress-birthday' ); ?></strong> <?php esc_html_e( 'Widget heading text', 'buddypress-birthday' ); ?></li>
-				<li><strong><?php esc_html_e( 'Display Age:', 'buddypress-birthday' ); ?></strong> <?php esc_html_e( 'Show member age', 'buddypress-birthday' ); ?></li>
-				<li><strong><?php esc_html_e( 'Send Message:', 'buddypress-birthday' ); ?></strong> <?php esc_html_e( 'Show "Send Wishes" button', 'buddypress-birthday' ); ?></li>
-				<li><strong><?php esc_html_e( 'Date Format:', 'buddypress-birthday' ); ?></strong> <?php esc_html_e( 'PHP date format string', 'buddypress-birthday' ); ?></li>
-				<li><strong><?php esc_html_e( 'Range:', 'buddypress-birthday' ); ?></strong> <?php esc_html_e( 'Today, weekly, monthly, or upcoming', 'buddypress-birthday' ); ?></li>
-				<li><strong><?php esc_html_e( 'Scope:', 'buddypress-birthday' ); ?></strong> <?php esc_html_e( 'All members or friends only', 'buddypress-birthday' ); ?></li>
+				<li><strong><?php esc_html_e( 'Title:', 'buddypress-birthday-block' ); ?></strong> <?php esc_html_e( 'Widget heading text', 'buddypress-birthday-block' ); ?></li>
+				<li><strong><?php esc_html_e( 'Display Age:', 'buddypress-birthday-block' ); ?></strong> <?php esc_html_e( 'Show member age', 'buddypress-birthday-block' ); ?></li>
+				<li><strong><?php esc_html_e( 'Send Message:', 'buddypress-birthday-block' ); ?></strong> <?php esc_html_e( 'Show "Send Wishes" button', 'buddypress-birthday-block' ); ?></li>
+				<li><strong><?php esc_html_e( 'Date Format:', 'buddypress-birthday-block' ); ?></strong> <?php esc_html_e( 'PHP date format string', 'buddypress-birthday-block' ); ?></li>
+				<li><strong><?php esc_html_e( 'Range:', 'buddypress-birthday-block' ); ?></strong> <?php esc_html_e( 'Today, weekly, monthly, or upcoming', 'buddypress-birthday-block' ); ?></li>
+				<li><strong><?php esc_html_e( 'Scope:', 'buddypress-birthday-block' ); ?></strong> <?php esc_html_e( 'All members or friends only', 'buddypress-birthday-block' ); ?></li>
 			</ul>
 		</div>
 		<?php
@@ -181,7 +181,7 @@ class BuddyPress_Birthday_Admin {
 	 * Render section description
 	 */
 	public function render_section_description() {
-		echo '<p>' . esc_html__( 'Select which xProfile field contains member birthdays. Only date-type fields are shown.', 'buddypress-birthday' ) . '</p>';
+		echo '<p>' . esc_html__( 'Select which xProfile field contains member birthdays. Only date-type fields are shown.', 'buddypress-birthday-block' ) . '</p>';
 	}
 
 	/**
@@ -193,16 +193,16 @@ class BuddyPress_Birthday_Admin {
 
 		if ( empty( $date_fields ) ) {
 			echo '<p class="description">';
-			esc_html_e( 'No date fields found. Please create a date-type xProfile field first.', 'buddypress-birthday' );
+			esc_html_e( 'No date fields found. Please create a date-type xProfile field first.', 'buddypress-birthday-block' );
 			echo ' <a href="' . esc_url( admin_url( 'users.php?page=bp-profile-setup' ) ) . '">';
-			esc_html_e( 'Create Profile Field', 'buddypress-birthday' );
+			esc_html_e( 'Create Profile Field', 'buddypress-birthday-block' );
 			echo '</a></p>';
 			return;
 		}
 
 		?>
 		<select name="bp_birthday_field_id" id="bp_birthday_field_id">
-			<option value="0"><?php esc_html_e( '-- Select a Field --', 'buddypress-birthday' ); ?></option>
+			<option value="0"><?php esc_html_e( '-- Select a Field --', 'buddypress-birthday-block' ); ?></option>
 			<?php foreach ( $date_fields as $field ) : ?>
 				<option value="<?php echo esc_attr( $field->id ); ?>" <?php selected( $current_field, $field->id ); ?>>
 					<?php echo esc_html( $field->name ); ?>
@@ -210,7 +210,7 @@ class BuddyPress_Birthday_Admin {
 			<?php endforeach; ?>
 		</select>
 		<p class="description">
-			<?php esc_html_e( 'This field will be used to calculate upcoming birthdays.', 'buddypress-birthday' ); ?>
+			<?php esc_html_e( 'This field will be used to calculate upcoming birthdays.', 'buddypress-birthday-block' ); ?>
 		</p>
 		<?php
 	}
@@ -223,20 +223,20 @@ class BuddyPress_Birthday_Admin {
 		?>
 		<select name="bp_birthday_default_range" id="bp_birthday_default_range">
 			<option value="upcoming" <?php selected( $current_range, 'upcoming' ); ?>>
-				<?php esc_html_e( 'Upcoming (All Future)', 'buddypress-birthday' ); ?>
+				<?php esc_html_e( 'Upcoming (All Future)', 'buddypress-birthday-block' ); ?>
 			</option>
 			<option value="today" <?php selected( $current_range, 'today' ); ?>>
-				<?php esc_html_e( 'Today Only', 'buddypress-birthday' ); ?>
+				<?php esc_html_e( 'Today Only', 'buddypress-birthday-block' ); ?>
 			</option>
 			<option value="weekly" <?php selected( $current_range, 'weekly' ); ?>>
-				<?php esc_html_e( 'Next 7 Days', 'buddypress-birthday' ); ?>
+				<?php esc_html_e( 'Next 7 Days', 'buddypress-birthday-block' ); ?>
 			</option>
 			<option value="monthly" <?php selected( $current_range, 'monthly' ); ?>>
-				<?php esc_html_e( 'This Month', 'buddypress-birthday' ); ?>
+				<?php esc_html_e( 'This Month', 'buddypress-birthday-block' ); ?>
 			</option>
 		</select>
 		<p class="description">
-			<?php esc_html_e( 'Default range for birthday blocks. Can be overridden in each block.', 'buddypress-birthday' ); ?>
+			<?php esc_html_e( 'Default range for birthday blocks. Can be overridden in each block.', 'buddypress-birthday-block' ); ?>
 		</p>
 		<?php
 	}
@@ -250,7 +250,7 @@ class BuddyPress_Birthday_Admin {
 		<input type="number" name="bp_birthday_default_limit" id="bp_birthday_default_limit"
 			   value="<?php echo esc_attr( $current_limit ); ?>" min="1" max="50" />
 		<p class="description">
-			<?php esc_html_e( 'Default number of birthdays to display in the block.', 'buddypress-birthday' ); ?>
+			<?php esc_html_e( 'Default number of birthdays to display in the block.', 'buddypress-birthday-block' ); ?>
 		</p>
 		<?php
 	}
