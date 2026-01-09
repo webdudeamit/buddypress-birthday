@@ -2,21 +2,21 @@
 /**
  * Birthday Block for BuddyPress
  *
- * @package           buddypress-birthdays
+ * @package           birthday-block-for-buddypress
  * @author            Amit Kumar Agrahari
  * @copyright         2025 Amit Kumar Agrahari
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
  * Plugin Name:       Birthday Block for BuddyPress
- * Plugin URI:        https://wordpress.org/plugins/buddypress-birthdays/
+ * Plugin URI:        https://wordpress.org/plugins/birthday-block-for-buddypress/
  * Description:       Display upcoming birthdays of your BuddyPress members with a beautiful, customizable Gutenberg block. Perfect for building community engagement!
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Amit Kumar Agrahari
  * Author URI:        https://profiles.wordpress.org/amitgrhr/
- * Text Domain:       buddypress-birthdays
+ * Text Domain:       birthday-block-for-buddypress
  * Domain Path:       /languages
  * License:           GPL v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -74,7 +74,6 @@ class BuddyBirthday {
 	public function buddy_birthday_init() {
 		add_action( 'plugins_loaded', array( $this, 'check_dependencies' ), 1 );
 		add_action( 'plugins_loaded', array( $this, 'buddy_birthday_setup_constants' ), 2 );
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ), 3 );
 		add_action( 'bp_init', array( $this, 'load_includes' ), 4 );
 		add_action( 'init', array( $this, 'buddy_birthday_block_init' ) );
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
@@ -145,8 +144,8 @@ class BuddyBirthday {
 				<?php
 				printf(
 					/* translators: %s: BuddyPress */
-					esc_html__( 'BuddyPress Birthday requires %s to be installed and active.', 'buddypress-birthdays' ),
-					'<strong>' . esc_html__( 'BuddyPress', 'buddypress-birthdays' ) . '</strong>'
+					esc_html__( 'BuddyPress Birthday requires %s to be installed and active.', 'birthday-block-for-buddypress' ),
+					'<strong>' . esc_html__( 'BuddyPress', 'birthday-block-for-buddypress' ) . '</strong>'
 				);
 				?>
 			</p>
@@ -171,9 +170,9 @@ class BuddyBirthday {
 				<?php
 				printf(
 					/* translators: %s: Settings link */
-					esc_html__( 'BuddyPress Birthday: Please configure the birthday field in %s.', 'buddypress-birthdays' ),
+					esc_html__( 'BuddyPress Birthday: Please configure the birthday field in %s.', 'birthday-block-for-buddypress' ),
 					'<a href="' . esc_url( admin_url( 'options-general.php?page=bp-birthday-settings' ) ) . '">' .
-					esc_html__( 'Settings > BP Birthday', 'buddypress-birthdays' ) .
+					esc_html__( 'Settings > BP Birthday', 'birthday-block-for-buddypress' ) .
 					'</a>'
 				);
 				?>
@@ -198,17 +197,6 @@ class BuddyBirthday {
 		if ( ! defined( 'BUDDY_BIRTHDAY_TEMPLATE_PATH' ) ) {
 			define( 'BUDDY_BIRTHDAY_TEMPLATE_PATH', $this->get_path() . 'templates/' );
 		}
-	}
-
-	/**
-	 * Load plugin textdomain for translations
-	 */
-	public function load_textdomain() {
-		load_plugin_textdomain(
-			'buddypress-birthdays',
-			false,
-			dirname( plugin_basename( __FILE__ ) ) . '/languages'
-		);
 	}
 
 	/**
