@@ -7,6 +7,9 @@
  * @package buddypress-birthday
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 class BuddyPress_Birthday_Members {
 
 	/**
@@ -111,7 +114,7 @@ class BuddyPress_Birthday_Members {
 		if ( 'friends' === $scope && ! is_user_logged_in() ) {
 			return new WP_Error(
 				'rest_forbidden',
-				__( 'You must be logged in to view friends birthdays.', 'birthday-block-for-buddypress' ),
+				__( 'You must be logged in to view friends birthdays.', 'buddypress-birthdays' ),
 				array( 'status' => 401 )
 			);
 		}
@@ -139,7 +142,7 @@ class BuddyPress_Birthday_Members {
 		if ( ! $field_id ) {
 			return new WP_Error(
 				'no_birthday_field',
-				__( 'No birthday field configured. Please configure it in Settings > BP Birthday.', 'birthday-block-for-buddypress' ),
+				__( 'No birthday field configured. Please configure it in Settings > BP Birthday.', 'buddypress-birthdays' ),
 				array( 'status' => 400 )
 			);
 		}

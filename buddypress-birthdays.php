@@ -2,25 +2,28 @@
 /**
  * Birthday Block for BuddyPress
  *
- * @package           birthday-block-for-buddypress
+ * @package           buddypress-birthdays
  * @author            Amit Kumar Agrahari
  * @copyright         2025 Amit Kumar Agrahari
  * @license           GPL-2.0-or-later
  *
  * @wordpress-plugin
  * Plugin Name:       Birthday Block for BuddyPress
- * Plugin URI:        https://wordpress.org/plugins/birthday-block-for-buddypress/
+ * Plugin URI:        https://wordpress.org/plugins/buddypress-birthdays/
  * Description:       Display upcoming birthdays of your BuddyPress members with a beautiful, customizable Gutenberg block. Perfect for building community engagement!
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Amit Kumar Agrahari
  * Author URI:        https://profiles.wordpress.org/amitgrhr/
- * Text Domain:       birthday-block-for-buddypress
+ * Text Domain:       buddypress-birthdays
  * Domain Path:       /languages
  * License:           GPL v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 class BuddyBirthday {
 
@@ -71,10 +74,9 @@ class BuddyBirthday {
 	public function buddy_birthday_init() {
 		add_action( 'plugins_loaded', array( $this, 'check_dependencies' ), 1 );
 		add_action( 'plugins_loaded', array( $this, 'buddy_birthday_setup_constants' ), 2 );
-		add_action( 'bp_init', array( $this, 'load_textdomain' ), 2 );
-		add_action( 'bp_init', array( $this, 'load_includes' ), 3 );
+		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ), 3 );
+		add_action( 'bp_init', array( $this, 'load_includes' ), 4 );
 		add_action( 'init', array( $this, 'buddy_birthday_block_init' ) );
-		add_filter( 'block_categories_all', array( $this, 'buddy_birthday_add_block_category' ), 10, 2 );
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 	}
 
@@ -143,8 +145,8 @@ class BuddyBirthday {
 				<?php
 				printf(
 					/* translators: %s: BuddyPress */
-					esc_html__( 'BuddyPress Birthday requires %s to be installed and active.', 'buddypress-birthday' ),
-					'<strong>' . esc_html__( 'BuddyPress', 'buddypress-birthday' ) . '</strong>'
+					esc_html__( 'BuddyPress Birthday requires %s to be installed and active.', 'buddypress-birthdays' ),
+					'<strong>' . esc_html__( 'BuddyPress', 'buddypress-birthdays' ) . '</strong>'
 				);
 				?>
 			</p>
@@ -169,9 +171,9 @@ class BuddyBirthday {
 				<?php
 				printf(
 					/* translators: %s: Settings link */
-					esc_html__( 'BuddyPress Birthday: Please configure the birthday field in %s.', 'buddypress-birthday' ),
+					esc_html__( 'BuddyPress Birthday: Please configure the birthday field in %s.', 'buddypress-birthdays' ),
 					'<a href="' . esc_url( admin_url( 'options-general.php?page=bp-birthday-settings' ) ) . '">' .
-					esc_html__( 'Settings > BP Birthday', 'buddypress-birthday' ) .
+					esc_html__( 'Settings > BP Birthday', 'buddypress-birthdays' ) .
 					'</a>'
 				);
 				?>
@@ -199,6 +201,17 @@ class BuddyBirthday {
 	}
 
 	/**
+	 * Load plugin textdomain for translations
+	 */
+	public function load_textdomain() {
+		load_plugin_textdomain(
+			'buddypress-birthdays',
+			false,
+			dirname( plugin_basename( __FILE__ ) ) . '/languages'
+		);
+	}
+
+	/**
 	 * Get plugin url
 	 */
 	public function get_url() {
@@ -212,32 +225,8 @@ class BuddyBirthday {
 		return $this->path;
 	}
 
-	/**
-	 * Load translation files
-	 */
-	public function load_textdomain() {
-		load_plugin_textdomain( 'buddypress-birthday', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-	}
-
 	public function buddy_birthday_block_init() {
 		register_block_type( __DIR__ . '/build' );
-	}
-
-	public function buddy_birthday_add_block_category( $block_categories, $block_editor_context ) {
-
-		if ( ! ( $block_editor_context instanceof WP_Block_Editor_Context ) ) {
-			return $block_categories;
-		}
-		return array_merge(
-			$block_categories,
-			array(
-				array(
-					'slug'  => 'wbcom-designs',
-					'title' => esc_html__( 'WBCOM Designs', 'buddypress-birthday' ),
-					'icon'  => 'lightbulb', // Slug of a WordPress Dashicon or custom SVG
-				),
-			)
-		);
 	}
 
 }

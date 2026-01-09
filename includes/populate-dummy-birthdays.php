@@ -69,14 +69,14 @@ function bp_birthday_populate_dummy_data() {
 		// Generate a random birthday (age between 18 and 65)
 		$min_age = 18;
 		$max_age = 65;
-		$age     = rand( $min_age, $max_age );
+		$age     = wp_rand( $min_age, $max_age );
 
 		// Calculate birth year
-		$birth_year = date( 'Y' ) - $age;
+		$birth_year = gmdate( 'Y' ) - $age;
 
 		// Random month and day
-		$birth_month = str_pad( rand( 1, 12 ), 2, '0', STR_PAD_LEFT );
-		$birth_day   = str_pad( rand( 1, 28 ), 2, '0', STR_PAD_LEFT ); // Using 28 to avoid invalid dates
+		$birth_month = str_pad( wp_rand( 1, 12 ), 2, '0', STR_PAD_LEFT );
+		$birth_day   = str_pad( wp_rand( 1, 28 ), 2, '0', STR_PAD_LEFT ); // Using 28 to avoid invalid dates
 
 		$birthday = $birth_year . '-' . $birth_month . '-' . $birth_day . ' 00:00:00';
 
@@ -171,14 +171,14 @@ function bp_birthday_dummy_data_admin_page() {
 
 	?>
 	<div class="wrap">
-		<h1><?php esc_html_e( 'BuddyPress Birthday - Dummy Data', 'birthday-block-for-buddypress' ); ?></h1>
+		<h1><?php esc_html_e( 'BuddyPress Birthday - Dummy Data', 'buddypress-birthdays' ); ?></h1>
 
 		<?php if ( $result ) : ?>
 			<div class="notice notice-<?php echo $result['success'] ? 'success' : 'error'; ?> is-dismissible">
 				<p><?php echo esc_html( $result['message'] ); ?></p>
 				<?php if ( ! empty( $result['birthdays'] ) && count( $result['birthdays'] ) <= 10 ) : ?>
 					<details>
-						<summary><?php esc_html_e( 'View sample data', 'birthday-block-for-buddypress' ); ?></summary>
+						<summary><?php esc_html_e( 'View sample data', 'buddypress-birthdays' ); ?></summary>
 						<ul>
 							<?php foreach ( array_slice( $result['birthdays'], 0, 10 ) as $birthday ) : ?>
 								<li>
@@ -194,30 +194,30 @@ function bp_birthday_dummy_data_admin_page() {
 		<?php endif; ?>
 
 		<div class="card">
-			<h2><?php esc_html_e( 'Populate Dummy Birthday Data', 'birthday-block-for-buddypress' ); ?></h2>
+			<h2><?php esc_html_e( 'Populate Dummy Birthday Data', 'buddypress-birthdays' ); ?></h2>
 			<p>
-				<?php esc_html_e( 'This will add random birthday dates (ages 18-65) to all BuddyPress members who don\'t have a birthday set.', 'birthday-block-for-buddypress' ); ?>
+				<?php esc_html_e( 'This will add random birthday dates (ages 18-65) to all BuddyPress members who don\'t have a birthday set.', 'buddypress-birthdays' ); ?>
 			</p>
 			<p>
-				<strong><?php esc_html_e( 'Note:', 'birthday-block-for-buddypress' ); ?></strong>
-				<?php esc_html_e( 'Make sure you have configured the birthday field in Settings > BP Birthday before running this.', 'birthday-block-for-buddypress' ); ?>
+				<strong><?php esc_html_e( 'Note:', 'buddypress-birthdays' ); ?></strong>
+				<?php esc_html_e( 'Make sure you have configured the birthday field in Settings > BP Birthday before running this.', 'buddypress-birthdays' ); ?>
 			</p>
 
 			<form method="post" style="margin-top: 20px;">
 				<?php wp_nonce_field( 'bp_birthday_dummy_data' ); ?>
 				<button type="submit" name="bp_birthday_populate" class="button button-primary">
-					<?php esc_html_e( 'Populate Dummy Birthdays', 'birthday-block-for-buddypress' ); ?>
+					<?php esc_html_e( 'Populate Dummy Birthdays', 'buddypress-birthdays' ); ?>
 				</button>
 				<button type="submit" name="bp_birthday_clear" class="button button-secondary"
-						onclick="return confirm('<?php esc_attr_e( 'Are you sure you want to clear all birthday data? This cannot be undone.', 'birthday-block-for-buddypress' ); ?>');">
-					<?php esc_html_e( 'Clear All Birthday Data', 'birthday-block-for-buddypress' ); ?>
+						onclick="return confirm('<?php esc_attr_e( 'Are you sure you want to clear all birthday data? This cannot be undone.', 'buddypress-birthdays' ); ?>');">
+					<?php esc_html_e( 'Clear All Birthday Data', 'buddypress-birthdays' ); ?>
 				</button>
 			</form>
 		</div>
 
 		<div class="card" style="margin-top: 20px;">
-			<h3><?php esc_html_e( 'Alternative: WP-CLI Command', 'birthday-block-for-buddypress' ); ?></h3>
-			<p><?php esc_html_e( 'You can also populate data using WP-CLI:', 'birthday-block-for-buddypress' ); ?></p>
+			<h3><?php esc_html_e( 'Alternative: WP-CLI Command', 'buddypress-birthdays' ); ?></h3>
+			<p><?php esc_html_e( 'You can also populate data using WP-CLI:', 'buddypress-birthdays' ); ?></p>
 			<pre style="background: #f5f5f5; padding: 10px; border-radius: 3px;">wp eval "include 'wp-content/plugins/buddypress-birthdays/includes/populate-dummy-birthdays.php'; print_r(bp_birthday_populate_dummy_data());"</pre>
 		</div>
 	</div>
@@ -230,8 +230,8 @@ function bp_birthday_dummy_data_admin_page() {
 function bp_birthday_dummy_data_menu() {
 	add_submenu_page(
 		'options-general.php',
-		__( 'BP Birthday - Dummy Data', 'birthday-block-for-buddypress' ),
-		__( 'BP Birthday Data', 'birthday-block-for-buddypress' ),
+		__( 'BP Birthday - Dummy Data', 'buddypress-birthdays' ),
+		__( 'BP Birthday Data', 'buddypress-birthdays' ),
 		'manage_options',
 		'bp-birthday-dummy-data',
 		'bp_birthday_dummy_data_admin_page'
